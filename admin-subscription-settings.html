@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Admin Subscription Settings</title>
+<link rel="stylesheet" href="style.css"/>
+
+<style>
+/* ---------- PLAN CARD STYLE ---------- */
+.plan-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 16px;
+  border-radius: 14px;
+  margin-bottom: 16px;
+}
+
+.plan-card h3 {
+  margin: 0 0 6px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.plan-card .price {
+  margin: 6px 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.plan-card ul {
+  padding-left: 18px;
+  margin: 10px 0;
+}
+
+/* EDITABLE */
+.edit-input {
+  width: 100%;
+  padding: 8px;
+  margin: 4px 0;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 8px;
+  color: #fff;
+}
+
+/* ---------- FORM STYLES ---------- */
+.settings-form input,
+.settings-form textarea {
+  width: 100%;
+  margin: 6px 0;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+}
+
+.settings-form textarea {
+  min-height: 80px;
+}
+
+.settings-form .btn {
+  margin-top: 10px;
+}
+</style>
+</head>
+
+
+<body class="page-admin">
+
+<header class="navbar">
+  <div class="logo-wrapper">
+    <div class="logo-circle"><img src="logo.jpg"></div>
+    <div class="logo-text">BiTForeX Admin</div>
+  </div>
+
+  <div id="menu-toggle" class="menu-toggle">☰</div>
+
+  <nav class="nav" id="main-nav">
+    <a href="admin.html">Dashboard</a>
+    <a href="admin-users.html">Users</a>
+    <a class="active" href="admin-subscription-settings.html">Plans</a>
+    <a href="admin-profile.html">Profile</a>
+  </nav>
+</header>
+
+
+
+<div class="page-container">
+
+  <div class="panel">
+
+    <h2 class="section-title">Manage Subscription Plans</h2>
+
+    <!-- Render plans here -->
+    <div id="plans-body"></div>
+
+
+    <h3 style="margin-top:30px">Add New Plan</h3>
+
+    <div class="settings-form">
+
+      <input id="new-name" placeholder="Plan name">
+
+      <input id="new-price" type="number" placeholder="Price ($)">
+
+      <textarea id="new-features" placeholder="Features (1 per line)"></textarea>
+
+      <button id="add-plan-btn" class="btn primary">Add Plan</button>
+
+    </div>
+
+  </div>
+</div>
+
+
+<script src="script.js"></script>
+</body>
+</html>
