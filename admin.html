@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin Dashboard — BiTForeX Academy</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="page-admin">
+
+<header class="navbar">
+  <div class="brand">
+    <div class="logo-circle"><img src="logo.jpg" alt="logo"></div>
+    <a class="logo-text">BiTForeX Admin</a>
+  </div>
+
+  <nav class="nav" id="main-nav">
+    <a href="admin.html" class="active">Dashboard</a>
+    <a href="admin-users.html">Users</a>
+    <a href="admin-payments.html">Payments</a>
+    <a href="admin-subscription-settings.html">Subscription Settings</a>
+    <a href="admin-chat.html">Chat Inbox</a>
+    <a href="admin-profile.html">Profile</a>
+    <a href="login.html" id="logout-admin">Logout</a>
+  </nav>
+
+  <div id="menu-toggle" class="menu-toggle">☰</div>
+</header>
+
+<main class="container fade-in-up" style="margin-top:90px;">
+
+  <h2>Admin Dashboard</h2>
+  <p class="muted">Monitor user activity, payments, subscriptions and messages.</p>
+
+  <section class="cards" style="margin-top:25px;">
+
+    <div class="card">
+      <h3>Total Users</h3>
+      <p id="count-users" class="count-number">0</p>
+    </div>
+
+    <div class="card">
+      <h3>Pending Payments</h3>
+      <p id="count-pending" class="count-number">0</p>
+    </div>
+
+    <div class="card">
+      <h3>Active Subscriptions</h3>
+      <p id="count-active" class="count-number">0</p>
+    </div>
+
+    <div class="card">
+      <h3>Unread Messages</h3>
+      <p id="count-messages" class="count-number">0</p>
+    </div>
+
+  </section>
+
+
+  <section class="panel" style="margin-top:40px; padding:25px;">
+    <h3>Quick Links</h3>
+
+    <div style="margin-top:15px; display:flex; flex-wrap:wrap; gap:15px;">
+      <a href="admin-users.html" class="btn outline">Manage Users</a>
+      <a href="admin-payments.html" class="btn outline">Payment Requests</a>
+      <a href="admin-subscription-settings.html" class="btn outline">Edit Subscription Plans</a>
+      <a href="admin-chat.html" class="btn outline">Open Chat Inbox</a>
+      <a href="admin-profile.html" class="btn outline">Admin Profile</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>© <span id="yr"></span> BiTForeX Admin</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin Users — BiTForeX Academy</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+/* --- Card Layout --- */
+.user-card {
+  background: rgba(255,255,255,0.04);
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 14px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.user-card h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.user-card .muted {
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.user-badge {
+  display: inline-block;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 8px;
+  margin-top: 6px;
+}
+
+.badge-active { background:#0f0;color:#000; }
+.badge-inactive { background:#999;color:#000; }
+
+.filter-bar {
+  display: flex;
+  gap: 8px;
+  margin: 15px 0;
+}
+
+.filter-btn {
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: transparent;
+  color: #fff;
+  font-size: 14px;
+}
+
+.filter-btn.active {
+  background: #0f0;
+  color: #000;
+  font-weight: bold;
+}
+
+.view-btn {
+  margin-top: 10px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: #0f0;
+  color: #000;
+  font-size: 14px;
+  display: inline-block;
+  border: none;
+}
+</style>
+
+</head>
+
+<body class="page-admin">
+
+<header class="navbar">
+  <div class="brand">
+    <div class="logo-circle"><img src="logo.jpg" alt="logo"></div>
+    <a class="logo-text">BiTForeX Admin</a>
+  </div>
+
+  <nav class="nav" id="main-nav">
+    <a href="admin.html">Dashboard</a>
+    <a href="admin-users.html" class="active">Users</a>
+    <a href="admin-payments.html">Payments</a>
+    <a href="admin-subscription-settings.html">Subscription Settings</a>
+    <a href="admin-chat.html">Chat Inbox</a>
+    <a href="admin-profile.html">Profile</a>
+    <a href="login.html" id="logout-admin">Logout</a>
+  </nav>
+
+  <div id="menu-toggle" class="menu-toggle">☰</div>
+</header>
+
+
+<main class="container fade-in-up" style="margin-top:90px;">
+
+  <h2>Registered Users</h2>
+  <p class="muted">All users on your platform</p>
+
+  <!-- FILTER BUTTONS -->
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="Active">Active</button>
+    <button class="filter-btn" data-filter="Inactive">Inactive</button>
+  </div>
+
+  <!-- USERS OUTPUT -->
+  <div id="adminUsersTable" style="margin-top:10px;">
+    <p class="muted">Loading users...</p>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <p>© <span id="yr"></span> BiTForeX Admin</p>
+</footer>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const box = document.getElementById("adminUsersTable");
+  const filterBtns = document.querySelectorAll(".filter-btn");
+
+  function loadUsers(filter = "all") {
+    const users = JSON.parse(localStorage.getItem("users") || "[]");
+
+    if (!users.length) {
+      box.innerHTML = `<p class="muted">No users found.</p>`;
+      return;
+    }
+
+    box.innerHTML = "";
+
+    users
+      .filter(u => {
+        if (filter === "all") return true;
+        return (u.status || "Inactive") === filter;
+      })
+      .forEach(u => {
+        const status = u.status === "Active" ? "badge-active" : "badge-inactive";
+        const sub = u.subscription ? u.subscription.plan : "None";
+
+        const card = document.createElement("div");
+        card.className = "user-card";
+
+        card.innerHTML = `
+          <h3>${u.name}</h3>
+          <div class="muted">${u.email}</div>
+          <p><strong>Plan:</strong> ${sub}</p>
+          <span class="user-badge ${status}">${u.status || "Inactive"}</span>
+          <br>
+          <button class="view-btn" onclick="window.location.href='admin-view-user.html?email=${u.email}'">
+            View User
+          </button>
+        `;
+
+        box.appendChild(card);
+      });
+  }
+
+  // first load
+  loadUsers();
+
+  // filter buttons
+  filterBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      filterBtns.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      loadUsers(btn.dataset.filter);
+    });
+  });
+});
+</script>
+
+<script src="script.js"></script>
+</body>
+</html>

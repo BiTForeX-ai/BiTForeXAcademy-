@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Admin — View Chat</title><link rel="stylesheet" href="style.css"/></head>
+<body class="page-admin">
+<header class="navbar"><div class="logo-wrapper"><div class="logo-circle"><img src="logo.jpg"></div><div class="logo-text">BiTForeX Admin</div></div><div id="menu-toggle" class="menu-toggle">☰</div><nav class="nav" id="main-nav"><a href="admin.html">Dashboard</a><a href="admin-users.html">Users</a><a href="admin-settings.html">Clients</a><a href="admin-chat.html">Chat Inbox</a><a href="admin-profile.html">Profile</a></nav></header>
+
+<div class="page-container">
+  <div class="panel">
+    <h2 class="section-title" id="title">Chat</h2>
+    <div class="chat-area">
+      <div class="messages" id="messages"></div>
+      <div style="display:flex;gap:10px;margin-top:12px;align-items:center">
+        <input type="text" id="replyText" placeholder="Type a message..." style="flex:1;padding:10px;border-radius:8px;background:transparent;color:#fff">
+        <input id="replyFile" type="file" accept="image/*" style="display:none">
+        <button id="attachBtn" class="btn">📎</button>
+        <button id="replyBtn" class="btn primary">Send</button>
+        <button id="closeBtn" class="btn ghost">Back</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="script.js">
+    
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Login — BiTForeX Academy</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="navbar">
+  <div class="brand">
+    <div class="logo-circle"><img src="logo.jpg" /></div>
+    <a class="logo-text" href="index.html">BiTForeX Academy</a>
+  </div>
+  <nav class="nav" id="main-nav">
+    <a href="index.html">Home</a>
+    <a href="register.html">Register</a>
+  </nav>
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+</header>
+
+
+<main class="auth-container">
+  <h2 style="margin-bottom:12px">Sign In</h2>
+
+  <form id="loginForm">
+    <input type="email" id="loginEmail" placeholder="Email" required />
+    <input type="password" id="loginPassword" placeholder="Password" required />
+
+    <button class="btn primary" style="width:100%;margin-top:18px">Sign In</button>
+  </form>
+
+  <p style="margin-top:12px;text-align:center">
+    <a href="register.html" class="muted">Create Account</a>
+  </p>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

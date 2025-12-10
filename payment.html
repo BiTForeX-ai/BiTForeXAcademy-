@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Make Payment — BiTForeX</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<header class="navbar">
+  <div class="brand"><div class="logo-circle"><img src="logo.jpg" alt="logo"></div><a class="logo-text" href="index.html">BiTForeX Academy</a></div>
+  <nav class="nav" id="main-nav">
+    <a href="index.html">Home</a><a href="subscription.html">Subscription</a><a href="login.html" id="nav-auth">Sign In</a>
+  </nav>
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+</header>
+
+<main class="container" style="margin-top:90px">
+  <div class="panel" style="max-width:600px;margin:30px auto">
+    <h2>Payment</h2>
+    <p class="muted">Upload payment proof and write a short description (what the payment is for).</p>
+
+    <div style="margin-top:12px">
+      <label><strong>Bank:</strong> <span id="bank-name">Loading...</span></label><br>
+      <label><strong>Account Name:</strong> <span id="account-name">Loading...</span></label><br>
+      <label><strong>Account Number:</strong> <span id="account-number">Loading...</span></label>
+    </div>
+
+    <div style="margin-top:12px">
+      <label><strong>Crypto Address:</strong></label>
+      <div id="btc-address" class="muted">Loading...</div>
+    </div>
+
+    <div style="margin-top:12px">
+      <p><strong>Payment Method</strong></p>
+      <label><input type="radio" name="paymethod" id="paymethod" value="bank" checked> Bank</label>
+      <label style="margin-left:12px"><input type="radio" name="paymethod" id="paymethod" value="crypto"> Crypto</label>
+    </div>
+
+    <div style="margin-top:12px">
+      <label><strong>Description</strong></label>
+      <textarea id="paymentDescription" rows="3" style="width:100%;padding:10px;border-radius:8px;background:#071126;border:1px solid rgba(255,255,255,0.03);color:#fff"></textarea>
+    </div>
+
+    <div style="margin-top:12px">
+      <label><strong>Proof (image)</strong></label>
+      <input type="file" id="proof-file" accept="image/*" />
+    </div>
+
+    <div style="margin-top:12px">
+      <button id="submitPaymentBtn" class="btn primary">Submit Payment</button>
+    </div>
+  </div>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

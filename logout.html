@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Logging out — BiTForeX</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<main class="container" style="margin-top:120px; text-align:center;">
+  <div class="panel" style="max-width:480px;margin:60px auto;padding:20px;">
+    <h3>Signing out…</h3>
+    <p class="muted">If you are not redirected automatically, <a href="login.html">click here</a>.</p>
+  </div>
+</main>
+
+<script src="script.js"></script>
+<script>
+  // call the unified logout helper (marks session inactive and redirects to login)
+  if (typeof logout === 'function') {
+    logout();
+  } else {
+    // fallback: clear session and redirect
+    const s = JSON.parse(localStorage.getItem('session')||'{}');
+    s.active = false;
+    localStorage.setItem('session', JSON.stringify(s));
+    window.location.href = 'login.html';
+  }
+</script>
+</body>
+</html>

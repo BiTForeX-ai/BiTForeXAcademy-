@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body style="background:#000;color:#0f0;font-size:18px;padding:20px">
+
+<h2>LocalStorage Debug</h2>
+
+<pre id="out">Loading...</pre>
+
+<script>
+const out = document.getElementById("out");
+
+function show(label, value){
+  out.textContent += `\n${label}:\n${value}\n\n`;
+}
+
+show("users", localStorage.getItem("users"));
+show("session", localStorage.getItem("session"));
+show("bf_pending_subs", localStorage.getItem("bf_pending_subs"));
+show("adminAccount", localStorage.getItem("adminAccount"));
+</script>
+
+</body>
+</html>

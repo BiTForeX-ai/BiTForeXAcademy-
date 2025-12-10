@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>User Chat — BiTForeX Academy</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="page-chat">
+<header class="navbar">
+  <div class="brand">
+    <div class="logo-circle"><img src="logo.jpg" alt="logo"></div>
+    <a class="logo-text" href="index.html">BiTForeX Academy</a>
+  </div>
+
+  <nav class="nav" id="main-nav">
+    <a href="index.html">Home</a>
+    <a href="courses.html">Courses</a>
+    <a href="chat.html" class="active">Chat</a>
+    <a href="subscription.html">Subscription</a>
+    <a href="settings.html">Settings</a>
+    <a href="login.html" id="nav-auth">Sign In</a>
+    <button id="logout-btn" class="btn small ghost">Logout</button>
+  </nav>
+
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+</header>
+
+<main class="chat-container container">
+  <div class="messages" id="messages">
+    <!-- messages are rendered by script.js -->
+  </div>
+
+  <div class="chat-input">
+    <input id="messageInput" type="text" placeholder="Type a message..." autocomplete="off" />
+    <button id="fileBtn" class="btn ghost">📎</button>
+    <input id="fileInput" type="file" accept="image/*" style="display:none" />
+    <button id="sendBtn" class="btn primary">Send</button>
+  </div>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
