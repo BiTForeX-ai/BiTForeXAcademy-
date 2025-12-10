@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Admin — Manage Courses</title>
+<link rel="stylesheet" href="style.css"/>
+
+<style>
+.course-card {
+  background:#111;
+  padding:18px;
+  border-radius:12px;
+  margin-bottom:14px;
+  border:1px solid rgba(255,255,255,0.08);
+}
+.course-card h3 {
+  margin:0 0 6px;
+}
+.course-card .muted {
+  font-size:14px;
+  margin-bottom:10px;
+}
+.edit-input {
+  width:100%;
+  margin-bottom:10px;
+  padding:10px;
+  border-radius:8px;
+  background:#222;
+  color:#fff;
+  border:none;
+}
+</style>
+
+</head>
+
+<body class="page-admin">
+
+<header class="navbar">
+  <div class="brand">
+    <div class="logo-circle"><img src="logo.jpg"></div>
+    <div class="logo-text">BiTForeX Admin</div>
+  </div>
+
+  <nav class="nav" id="main-nav">
+    <a href="admin.html">Dashboard</a>
+    <a href="admin-users.html">Users</a>
+    <a href="admin-payments.html">Payments</a>
+    <a href="admin-subscription-settings.html">Plans</a>
+    <a class="active" href="admin-courses.html">Courses</a>
+    <a href="admin-profile.html">Profile</a>
+    <a href="login.html">Logout</a>
+  </nav>
+
+  <div id="menu-toggle" class="menu-toggle">☰</div>
+</header>
+
+<div class="page-container">
+
+  <h2>Manage Courses</h2>
+
+  <div id="courses-body"></div>
+
+  <h3 style="margin-top:22px;">Add New Course</h3>
+
+  <input id="new-course-name" class="edit-input" placeholder="Course Title">
+  <textarea id="new-course-desc" class="edit-input" placeholder="Course Description"></textarea>
+
+  <button class="btn primary" id="add-course-btn">Add Course</button>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
