@@ -97,5 +97,45 @@
 </main>
 
 <script src="script.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    // Load old settings into input fields
+    function loadPaymentSettings() {
+        const settings = JSON.parse(localStorage.getItem("paymentSettings") || "{}");
+
+        document.getElementById("bankNameInput").value = settings.bankName || "";
+        document.getElementById("accountNameInput").value = settings.accountName || "";
+        document.getElementById("accountNumberInput").value = settings.accountNumber || "";
+        document.getElementById("btcAddressInput").value = settings.btcAddress || "";
+    }
+
+    // Save function
+    document.getElementById("savePaymentSettings").addEventListener("click", () => {
+        const bankName = document.getElementById("bankNameInput").value.trim();
+        const accountName = document.getElementById("accountNameInput").value.trim();
+        const accountNumber = document.getElementById("accountNumberInput").value.trim();
+        const btcAddress = document.getElementById("btcAddressInput").value.trim();
+
+        if (!bankName || !accountName || !accountNumber) {
+            alert("Please fill all required fields.");
+            return;
+        }
+
+        const data = {
+            bankName,
+            accountName,
+            accountNumber,
+            btcAddress
+        };
+
+        localStorage.setItem("paymentSettings", JSON.stringify(data));
+
+        alert("Payment settings saved successfully!");
+    });
+
+    loadPaymentSettings();
+});
+</script>
 </body>
 </html>

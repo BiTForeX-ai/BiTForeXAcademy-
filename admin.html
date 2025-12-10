@@ -78,5 +78,24 @@
 </footer>
 
 <script src="script.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const users = JSON.parse(localStorage.getItem("users") || "[]");
+  const subs  = users.filter(u => u.status === "Active").length;
+
+  const pending = JSON.parse(localStorage.getItem("bf_pending_subs") || "[]")
+                    .filter(p => p.status === "pending").length;
+
+  const messages = localStorage.getItem("bf_messages")
+                    ? Object.keys(JSON.parse(localStorage.getItem("bf_messages"))).length
+                    : 0;
+
+  document.getElementById("count-users").textContent = users.length;
+  document.getElementById("count-active").textContent = subs;
+  document.getElementById("count-pending").textContent = pending;
+  document.getElementById("count-messages").textContent = messages;
+});
+</script>
 </body>
 </html>
