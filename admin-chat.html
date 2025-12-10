@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin Inbox — BiTForeX Academy</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="page-admin">
+
+<header class="navbar">
+  <div class="brand">
+    <div class="logo-circle"><img src="logo.jpg" alt="logo"></div>
+    <a class="logo-text">BiTForeX Admin</a>
+  </div>
+
+  <nav class="nav" id="main-nav">
+    <a href="admin.html">Dashboard</a>
+    <a href="admin-users.html">Users</a>
+    <a href="admin-payments.html">Payments</a>
+    <a href="admin-subscription-settings.html">Subscription Settings</a>
+    <a href="admin-chat.html" class="active">Chat Inbox</a>
+    <a href="admin-profile.html">Profile</a>
+    <a href="login.html" id="logout-admin">Logout</a>
+  </nav>
+
+  <div id="menu-toggle" class="menu-toggle">☰</div>
+</header>
+
+
+<main class="container fade-in-up" style="margin-top:90px;">
+
+  <h2>Chat Inbox</h2>
+  <p class="muted">Select a user to view their messages and reply.</p>
+
+  <div class="chat-wrap">
+
+    <!-- LEFT SIDE: USER LIST -->
+    <aside class="contacts">
+      <h3 style="margin-bottom:10px;">Users</h3>
+
+      <!-- REQUIRED ID (MATCHES JS) -->
+      <ul class="contact-list" id="usersList"></ul>
+    </aside>
+
+    <!-- RIGHT SIDE: CHAT PANEL -->
+    <section class="chat-panel">
+
+      <div class="chat-header">
+        <!-- REQUIRED ID -->
+        <span id="adminChatTitle">Select a user</span>
+      </div>
+
+      <!-- REQUIRED ID -->
+      <div class="messages" id="adminMessages"></div>
+
+      <div class="chat-input">
+
+        <!-- REQUIRED ID -->
+        <input type="text" id="adminMessageInput" placeholder="Type message…" disabled>
+
+        <!-- REQUIRED ID -->
+        <input type="file" id="adminFileInput" accept="image/*" style="display:none;">
+
+        <!-- REQUIRED ID -->
+        <button id="adminFileBtn" class="emoji-btn" disabled>📎</button>
+
+        <!-- REQUIRED ID -->
+        <button id="adminSendBtn" class="btn small primary" disabled>Send</button>
+      </div>
+
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <p>© <span id="yr"></span> BiTForeX Admin</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
