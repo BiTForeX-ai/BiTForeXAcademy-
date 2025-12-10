@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Admin Profile — BiTForeX</title>
+<link rel="stylesheet" href="style.css"/>
+
+<style>
+  .profile-wrap {
+    max-width: 720px;
+    margin: 90px auto;
+    background: #111;
+    padding: 28px;
+    border-radius: 12px;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.06);
+  }
+  .profile-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .profile-header img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 2px solid #333;
+    object-fit: cover;
+  }
+  .profile-info label {
+    font-size: 14px;
+    opacity: .85;
+    margin-bottom: 4px;
+    display: block;
+  }
+  .profile-info input {
+    width: 100%;
+    padding: 12px;
+    background: #222;
+    color: #fff;
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 14px;
+  }
+  .btn-save {
+    margin-top: 8px;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+  }
+</style>
+</head>
+
+<body>
+<header class="navbar">
+  <div class="brand">
+    <div class="logo-circle"><img src="logo.jpg"></div>
+    <span class="logo-text">BiTForeX Admin</span>
+  </div>
+
+  <nav class="nav" id="main-nav">
+    <a href="admin.html">Dashboard</a>
+    <a href="admin-users.html">Users</a>
+    <a href="admin-payments.html">Payments</a>
+    <a href="admin-payment-settings.html">Payment Settings</a>
+    <a href="admin-chat.html">Chat Inbox</a>
+    <a href="admin-profile.html" class="active">Profile</a>
+    <a href="login.html" id="logout-admin">Logout</a>
+  </nav>
+  <div id="menu-toggle" class="menu-toggle">☰</div>
+</header>
+
+<main class="profile-wrap fade-in-up">
+
+  <div class="profile-header">
+    <img src="logo.jpg" alt="Admin Avatar">
+    <h2>Administrator Profile</h2>
+  </div>
+
+  <div class="profile-info">
+    <label>Admin Name</label>
+    <input id="adminNameInput" value="Administrator">
+
+    <label>Email Address</label>
+    <input id="adminEmailInput" value="arthurebube8@gmail.com">
+
+    <label>Password</label>
+    <input id="adminPasswordInput" type="password" placeholder="Change Password">
+  </div>
+
+  <button class="btn primary btn-save" id="saveAdminProfile">Save Profile</button>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
