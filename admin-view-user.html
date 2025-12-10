@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>View User — BiTForeX Admin</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+/* Page container */
+.view-container {
+  max-width: 600px;
+  margin: 110px auto 40px;
+  padding: 20px;
+}
+
+/* Card-style info box */
+.user-info-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 18px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+/* Labels */
+.user-info-card p {
+  margin: 8px 0;
+  font-size: 15px;
+}
+
+.user-info-card strong {
+  color: #fff;
+}
+
+/* Buttons */
+.action-btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-edit { background: #3b82f6; color:#fff; }
+.btn-activate { background: #10b981; color:#000; }
+.btn-expire { background: #f59e0b; color:#000; }
+.btn-delete { background: #ef4444; color:#fff; }
+
+/* Back link */
+.back-link {
+  margin-top: 20px;
+  text-align: center;
+}
+.back-link a {
+  color: #4ade80;
+  text-decoration: none;
+  font-size: 14px;
+}
+</style>
+
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="brand">
+    <div class="logo-circle"><img src="logo.jpg"></div>
+    <a class="logo-text" href="admin.html">BiTForeX Admin</a>
+  </div>
+
+  <div id="menu-toggle" class="menu-toggle">☰</div>
+
+  <nav class="nav" id="main-nav">
+    <a href="admin.html">Dashboard</a>
+    <a href="admin-users.html" class="active">Users</a>
+    <a href="admin-payments.html">Payments</a>
+    <a href="admin-subscription-settings.html">Subscription Settings</a>
+    <a href="admin-chat.html">Chat Inbox</a>
+    <a href="admin-profile.html">Profile</a>
+    <a href="login.html" id="logout-admin">Logout</a>
+  </nav>
+</header>
+
+
+<div class="view-container fade-in-up">
+
+  <h2>User Details</h2>
+  <p class="muted">View and manage this user</p>
+
+  <div class="user-info-card">
+    <p><strong>Name:</strong> <span id="user-name">Loading...</span></p>
+    <p><strong>Email:</strong> <span id="user-email">Loading...</span></p>
+    <p><strong>Username:</strong> <span id="user-username">Loading...</span></p>
+    <p><strong>Plan:</strong> <span id="user-plan">Loading...</span></p>
+    <p><strong>Status:</strong> <span id="user-status">Loading...</span></p>
+  </div>
+
+  <button class="action-btn btn-edit" onclick="editUser()">Edit User</button>
+  <button class="action-btn btn-activate" onclick="activatePlan()">Activate Plan</button>
+  <button class="action-btn btn-expire" onclick="expirePlan()">Expire Plan</button>
+  <button class="action-btn btn-delete" onclick="deleteUser()">Delete User</button>
+
+  <div class="back-link">
+    <a href="admin-users.html">← Back to Users</a>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
