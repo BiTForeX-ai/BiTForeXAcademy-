@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin Settings — BiTForeX Academy</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+.client-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 16px;
+  border-radius: 14px;
+  margin-bottom: 14px;
+  display: block;
+}
+
+.client-card h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.client-card .muted {
+  font-size: 13px;
+  opacity: .8;
+  margin-bottom: 6px;
+}
+
+.client-card .badge {
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  display: inline-block;
+  margin-top: 6px;
+}
+
+.badge-active {
+  background: #0f0;
+  color: #000;
+}
+
+.badge-inactive {
+  background: #bbb;
+  color: #000;
+}
+
+.client-card .btn-view {
+  display: inline-block;
+  margin-top: 12px;
+}
+</style>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="brand"><div class="logo-mark"></div><a class="logo">BiTForeX Admin</a></div>
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+  <nav class="nav" id="main-nav">
+    <a href="admin.html">Dashboard</a>
+    <a href="admin-users.html">Users</a>
+    <a href="admin-settings.html" class="active">Clients</a>
+    <a href="admin-payments.html">Payments</a>
+    <a href="admin-profile.html">Profile</a>
+    <a href="login.html">Logout</a>
+  </nav>
+</header>
+
+<div class="admin-container">
+  <h2>Client Management</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Email</th>
+        <th>Plan</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody id="clients-table-body">
+  <!-- Cards will appear here -->
+</tbody>
+      <!-- populated by admin.js or shows example row -->
+    </tbody>
+  </table>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
