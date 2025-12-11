@@ -6,9 +6,7 @@
   <title>Admin Dashboard — BiTForeX Academy</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body class="page-admin">
-
 <header class="navbar">
   <div class="brand">
     <div class="logo-circle"><img src="logo.jpg" alt="logo"></div>
@@ -24,6 +22,8 @@
     <a href="admin-subscription-settings.html">Subscription Settings</a>
     <a href="admin-chat.html">Chat Inbox</a>
     <a href="admin-profile.html">Profile</a>
+
+    <div class="notif-bell" id="notifBell">🔔 <span id="notifCount" class="notif-count hidden">0</span></div>
     <a href="login.html" id="logout-admin">Logout</a>
   </nav>
 
@@ -31,72 +31,39 @@
 </header>
 
 <main class="container fade-in-up" style="margin-top:90px;">
-
   <h2>Admin Dashboard</h2>
   <p class="muted">Monitor user activity, payments, subscriptions and messages.</p>
 
   <section class="cards" style="margin-top:25px;">
-
     <div class="card">
       <h3>Total Users</h3>
       <p id="count-users" class="count-number">0</p>
     </div>
-
     <div class="card">
       <h3>Pending Payments</h3>
       <p id="count-pending" class="count-number">0</p>
     </div>
-
     <div class="card">
       <h3>Active Subscriptions</h3>
       <p id="count-active" class="count-number">0</p>
     </div>
-
     <div class="card">
       <h3>Unread Messages</h3>
       <p id="count-messages" class="count-number">0</p>
     </div>
-
   </section>
 
-
-  <section class="panel" style="margin-top:40px; padding:25px;">
-    <h3>Quick Links</h3>
-
-    <div style="margin-top:15px; display:flex; flex-wrap:wrap; gap:15px;">
-      <a href="admin-users.html" class="btn outline">Manage Users</a>
-      <a href="admin-payments.html" class="btn outline">Payment Requests</a>
-      <a href="admin-subscription-settings.html" class="btn outline">Edit Subscription Plans</a>
-      <a href="admin-chat.html" class="btn outline">Open Chat Inbox</a>
-      <a href="admin-profile.html" class="btn outline">Admin Profile</a>
-    </div>
-  </section>
-
+  <div class="notif-panel hidden" id="notifPanel" style="position:absolute;right:12px;top:72px;">
+    <h4>Notifications</h4>
+    <div id="notifList" class="notif-list">Loading...</div>
+  </div>
 </main>
 
-<footer class="site-footer">
-  <p>© <span id="yr"></span> BiTForeX Admin</p>
-</footer>
+<footer class="site-footer"><p>© <span id="yr"></span> BiTForeX Admin</p></footer>
 
+<!-- firebase.js MUST come before script.js -->
+<!-- include the firebase.js block content here (copy the firebase.js snippet into a file and reference it) -->
+<script src="firebase.js"></script>
 <script src="script.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-
-  const users = JSON.parse(localStorage.getItem("users") || "[]");
-  const subs  = users.filter(u => u.status === "Active").length;
-
-  const pending = JSON.parse(localStorage.getItem("bf_pending_subs") || "[]")
-                    .filter(p => p.status === "pending").length;
-
-  const messages = localStorage.getItem("bf_messages")
-                    ? Object.keys(JSON.parse(localStorage.getItem("bf_messages"))).length
-                    : 0;
-
-  document.getElementById("count-users").textContent = users.length;
-  document.getElementById("count-active").textContent = subs;
-  document.getElementById("count-pending").textContent = pending;
-  document.getElementById("count-messages").textContent = messages;
-});
-</script>
 </body>
 </html>

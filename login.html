@@ -6,41 +6,57 @@
 <title>Login — BiTForeX Academy</title>
 <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
 <header class="navbar">
   <div class="brand">
-    <div class="logo-circle"><img src="logo.jpg" /></div>
+    <div class="logo-circle"><img src="logo.jpg"></div>
     <a class="logo-text" href="index.html">BiTForeX Academy</a>
   </div>
+
   <nav class="nav" id="main-nav">
     <a href="index.html">Home</a>
     <a href="register.html">Register</a>
   </nav>
+
   <div class="menu-toggle" id="menu-toggle">☰</div>
 </header>
 
-
 <main class="auth-container">
-  <h2 style="margin-bottom:12px">Sign In</h2>
+  <h2>Sign In</h2>
 
   <form id="loginForm">
     <input type="email" id="loginEmail" placeholder="Email" required />
     <input type="password" id="loginPassword" placeholder="Password" required />
-
     <button class="btn primary" style="width:100%;margin-top:18px">Sign In</button>
   </form>
 
-  <!-- ✅ FORGOT PASSWORD ADDED -->
-  <p style="margin-top:12px;text-align:center">
-    <a href="forgot-password.html" class="muted">Forgot Password?</a>
+  <p style="margin-top:10px;text-align:center">
+    <a href="#" id="forgotToggle" class="muted">Forgot Password?</a>
   </p>
 
-  <p style="margin-top:8px;text-align:center">
-    <a href="register.html" class="muted">Create Account</a>
-  </p>
+  <!-- RESET PASSWORD UI -->
+  <form id="forgotForm" style="display:none;margin-top:15px">
+    <input type="email" id="forgotEmail" placeholder="Enter email" required />
+    <button class="btn ghost" style="width:100%;margin-top:8px">Send Reset Link</button>
+  </form>
+
 </main>
 
+<!-- Firebase -->
+<script src="firebase.js"></script>
+
+<!-- Script -->
 <script src="script.js"></script>
+
+<script>
+  // Toggle forgot password form
+  document.getElementById("forgotToggle").onclick = () => {
+    const f = document.getElementById("forgotForm");
+    f.style.display = f.style.display === "none" ? "block" : "none";
+  };
+</script>
+
 </body>
 </html>
