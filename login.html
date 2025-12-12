@@ -3,37 +3,91 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <base href="/BiTForeXAcademy-/">
   <title>Login — BiTForeX Academy</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
+
+<!-- NAVBAR -->
 <header class="navbar">
   <div class="brand">
-    <div class="logo-circle"><img src="logo.jpg" alt="logo"></div>
+    <div class="logo-circle"><img src="logo.jpg" /></div>
     <a class="logo-text" href="index.html">BiTForeX Academy</a>
   </div>
 
   <nav class="nav" id="main-nav">
     <a href="index.html">Home</a>
     <a href="register.html">Register</a>
-    <a href="forgot-password.html">Forgot</a>
+    <a href="login.html" class="active">Login</a>
   </nav>
 
-  <div class="menu-toggle" id="menu-toggle">☰</div>
+  <div id="menu-toggle" class="menu-toggle">☰</div>
 </header>
 
+<style>
+  .input-wrap {
+    position: relative;
+    width: 100%;
+  }
+
+  .eye-btn {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+</style>
+
 <main class="auth-container">
-  <h2>Sign In</h2>
+
+  <h2>Welcome Back</h2>
+
   <form id="loginForm">
+
     <input type="email" id="loginEmail" placeholder="Email" required />
-    <input type="password" id="loginPassword" placeholder="Password" required />
-    <button class="btn primary" style="width:100%">Sign In</button>
+
+    <div class="input-wrap">
+      <input type="password" id="loginPassword" placeholder="Password" required />
+      <span id="toggleLoginPass" class="eye-btn">👁</span>
+    </div>
+
+    <button class="btn primary" style="width:100%;margin-top:18px">Sign In</button>
+
   </form>
+
+  <p style="margin-top:12px;text-align:center">
+    <a href="forgot-password.html" class="muted">Forgot password?</a>
+  </p>
+
+  <p style="margin-top:8px;text-align:center">
+    <a href="register.html" class="muted">Create an account</a>
+  </p>
+
 </main>
 
-<!-- MUST be last -->
+<!-- FIREBASE -->
 <script src="firebase.js"></script>
+
+<!-- MAIN SCRIPT -->
 <script src="script.js"></script>
+
+<script>
+  // Password Reveal
+  const pass = document.getElementById("loginPassword");
+  const toggle = document.getElementById("toggleLoginPass");
+
+  toggle.onclick = () => {
+    if (pass.type === "password") {
+      pass.type = "text";
+      toggle.textContent = "🙈";
+    } else {
+      pass.type = "password";
+      toggle.textContent = "👁";
+    }
+  };
+</script>
+
 </body>
 </html>
