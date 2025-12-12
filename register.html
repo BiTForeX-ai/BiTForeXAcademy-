@@ -1,64 +1,32 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Reset Password — BiTForeX</title>
-<link rel="stylesheet" href="style.css">
-<style>
-.auth-box { max-width:380px;margin:120px auto;padding:30px;background:#111;border-radius:12px;box-shadow:0 0 0 1px rgba(255,255,255,0.08); }
-</style>
+  <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Register — BiTForeX Academy</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-
 <header class="navbar">
-  <div class="brand">
-    <div class="logo-circle"><img src="logo.jpg"></div>
-    <span class="logo-text">BiTForeX</span>
-  </div>
-  <nav class="nav" id="main-nav">
-    <a href="login.html">Login</a>
-  </nav>
-  <div id="menu-toggle" class="menu-toggle">☰</div>
+  <div class="brand"><div class="logo-circle"><img src="logo.jpg" alt="logo"></div><a class="logo-text" href="index.html">BiTForeX Academy</a></div>
+  <nav class="nav" id="main-nav"><a href="index.html">Home</a><a href="login.html">Login</a></nav>
+  <div class="menu-toggle" id="menu-toggle">☰</div>
 </header>
 
-<div class="auth-box fade-in-up">
-  <h2>Reset Password</h2>
-
-  <form id="forgotForm">
-    <input id="forgotEmail" type="email" placeholder="Enter your email" required>
-    <button class="btn primary" style="width:100%;margin-top:18px">Send Reset Link</button>
-  </form>
-</div>
-
-<script src="firebase.js"></script>
-<script src="script.js"></script>
-</body>
-</html>
-    <div class="input-wrap">
-      <input id="r-password" type="password" placeholder="Password" required>
-      <span class="reveal-btn" onclick="togglePass('r-password', this)">Show</span>
-    </div>
-
+<main class="auth-container">
+  <h2>Create an Account</h2>
+  <form id="registerForm">
+    <input type="text" id="r-name" placeholder="Full Name" required />
+    <input type="email" id="r-email" placeholder="Email" required />
+    <input type="password" id="r-password" placeholder="Password" required />
     <button class="btn primary" style="width:100%;margin-top:18px">Register</button>
   </form>
 
   <p style="margin-top:12px;text-align:center">
     <a href="login.html" class="muted">Already have an account?</a>
   </p>
-</div>
-
-<script>
-function togglePass(id, el){
-  const f=document.getElementById(id);
-  if(f.type==="password"){f.type="text";el.textContent="Hide";}
-  else{f.type="password";el.textContent="Show";}
-}
-</script>
+</main>
 
 <script src="firebase.js"></script>
 <script src="script.js"></script>
-
 </body>
 </html>
