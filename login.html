@@ -1,10 +1,27 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Login — BiTForeX Academy</title>
-<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="style.css">
+<style>
+.auth-box {
+  max-width: 380px;
+  margin: 120px auto;
+  padding: 30px;
+  background: #111;
+  border-radius: 12px;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.08);
+}
+.reveal-btn {
+  position:absolute; right:10px; top:11px; cursor:pointer;
+  color:#0f0; font-size:14px;
+}
+.input-wrap {
+  position:relative;
+}
+</style>
 </head>
 
 <body>
@@ -12,51 +29,46 @@
 <header class="navbar">
   <div class="brand">
     <div class="logo-circle"><img src="logo.jpg"></div>
-    <a class="logo-text" href="index.html">BiTForeX Academy</a>
+    <span class="logo-text">BiTForeX Academy</span>
   </div>
-
   <nav class="nav" id="main-nav">
     <a href="index.html">Home</a>
     <a href="register.html">Register</a>
   </nav>
-
-  <div class="menu-toggle" id="menu-toggle">☰</div>
+  <div id="menu-toggle" class="menu-toggle">☰</div>
 </header>
 
-<main class="auth-container">
+<div class="auth-box fade-in-up">
   <h2>Sign In</h2>
 
   <form id="loginForm">
-    <input type="email" id="loginEmail" placeholder="Email" required />
-    <input type="password" id="loginPassword" placeholder="Password" required />
-    <button class="btn primary" style="width:100%;margin-top:18px">Sign In</button>
+    <input id="loginEmail" type="email" placeholder="Email" required>
+
+    <div class="input-wrap">
+      <input id="loginPassword" type="password" placeholder="Password" required>
+      <span class="reveal-btn" onclick="togglePass('loginPassword', this)">Show</span>
+    </div>
+
+    <button class="btn primary" style="width:100%;margin-top:18px">Login</button>
   </form>
 
-  <p style="margin-top:10px;text-align:center">
-    <a href="#" id="forgotToggle" class="muted">Forgot Password?</a>
+  <p style="margin-top:12px;text-align:center">
+    <a href="forgot-password.html" class="muted">Forgot Password?</a>
   </p>
-
-  <!-- RESET PASSWORD UI -->
-  <form id="forgotForm" style="display:none;margin-top:15px">
-    <input type="email" id="forgotEmail" placeholder="Enter email" required />
-    <button class="btn ghost" style="width:100%;margin-top:8px">Send Reset Link</button>
-  </form>
-
-</main>
-
-<!-- Firebase -->
-<script src="firebase.js"></script>
-
-<!-- Script -->
-<script src="script.js"></script>
+  <p style="text-align:center">
+    <a href="register.html" class="muted">Create Account</a>
+  </p>
+</div>
 
 <script>
-  // Toggle forgot password form
-  document.getElementById("forgotToggle").onclick = () => {
-    const f = document.getElementById("forgotForm");
-    f.style.display = f.style.display === "none" ? "block" : "none";
-  };
+function togglePass(id, el){
+  const f = document.getElementById(id);
+  if(f.type === "password"){ f.type="text"; el.textContent="Hide"; }
+  else{ f.type="password"; el.textContent="Show"; }
+}
 </script>
 
+<script src="firebase.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
