@@ -1,73 +1,38 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Login — BiTForeX Academy</title>
-<link rel="stylesheet" href="style.css">
-<style>
-.auth-box {
-  max-width: 380px;
-  margin: 120px auto;
-  padding: 30px;
-  background: #111;
-  border-radius: 12px;
-  box-shadow: 0 0 0 1px rgba(255,255,255,0.08);
-}
-.reveal-btn {
-  position:absolute; right:10px; top:11px; cursor:pointer;
-  color:#0f0; font-size:14px;
-}
-.input-wrap {
-  position:relative;
-}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login — BiTForeX Academy</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-
 <header class="navbar">
   <div class="brand">
-    <div class="logo-circle"><img src="logo.jpg"></div>
-    <span class="logo-text">BiTForeX Academy</span>
+    <div class="logo-circle"><img src="logo.jpg" alt="logo"></div>
+    <a class="logo-text" href="index.html">BiTForeX Academy</a>
   </div>
   <nav class="nav" id="main-nav">
     <a href="index.html">Home</a>
     <a href="register.html">Register</a>
+    <a href="forgot-password.html">Forgot</a>
   </nav>
-  <div id="menu-toggle" class="menu-toggle">☰</div>
+  <div class="menu-toggle" id="menu-toggle">☰</div>
 </header>
 
-<div class="auth-box fade-in-up">
+<main class="auth-container">
   <h2>Sign In</h2>
-
   <form id="loginForm">
-    <input id="loginEmail" type="email" placeholder="Email" required>
-
-    <div class="input-wrap">
-      <input id="loginPassword" type="password" placeholder="Password" required>
-      <span class="reveal-btn" onclick="togglePass('loginPassword', this)">Show</span>
-    </div>
-
-    <button class="btn primary" style="width:100%;margin-top:18px">Login</button>
+    <input type="email" id="loginEmail" placeholder="Email" required />
+    <input type="password" id="loginPassword" placeholder="Password" required />
+    <button class="btn primary" style="width:100%">Sign In</button>
   </form>
-
   <p style="margin-top:12px;text-align:center">
-    <a href="forgot-password.html" class="muted">Forgot Password?</a>
+    <a href="register.html" class="muted">Create Account</a> · <a href="forgot-password.html" class="muted">Forgot password?</a>
   </p>
-  <p style="text-align:center">
-    <a href="register.html" class="muted">Create Account</a>
-  </p>
-</div>
+</main>
 
-<script>
-function togglePass(id, el){
-  const f = document.getElementById(id);
-  if(f.type === "password"){ f.type="text"; el.textContent="Hide"; }
-  else{ f.type="password"; el.textContent="Show"; }
-}
-</script>
-
+<!-- firebase + app scripts -->
 <script src="firebase.js"></script>
 <script src="script.js"></script>
 </body>
