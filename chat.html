@@ -1,31 +1,22 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>User Chat — BiTForeX Academy</title>
-<link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>User Chat — BiTForeX Academy</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body class="page-chat">
 <header class="navbar">
   <div class="brand"><div class="logo-circle"><img src="logo.jpg" alt="logo"></div><a class="logo-text" href="index.html">BiTForeX Academy</a></div>
-  <nav class="nav" id="main-nav">
-    <a href="index.html">Home</a>
-    <a href="courses.html">Courses</a>
-    <a href="chat.html" class="active">Chat</a>
-    <a href="subscription.html">Subscription</a>
-    <a href="settings.html">Settings</a>
-    <a href="login.html" id="nav-auth">Sign In</a>
-    <button id="logout-btn" class="btn small ghost">Logout</button>
-  </nav>
+  <nav class="nav" id="main-nav"><a href="index.html">Home</a><a href="courses.html">Courses</a><a href="chat.html" class="active">Chat</a><a href="subscription.html">Subscription</a><a href="settings.html">Settings</a><a href="login.html" id="nav-auth">Sign In</a><button id="logout-btn" class="btn small ghost">Logout</button></nav>
   <div class="menu-toggle" id="menu-toggle">☰</div>
 </header>
 
 <main class="chat-container container">
-  <div class="messages" id="messages" style="height:70vh;overflow:auto;"></div>
+  <div class="messages" id="messages"></div>
 
-  <div class="chat-input" style="display:flex;gap:8px;margin-top:10px;">
-    <input id="messageInput" type="text" placeholder="Type a message..." autocomplete="off" style="flex:1" />
+  <div class="chat-input">
+    <input id="messageInput" type="text" placeholder="Type a message..." autocomplete="off" />
     <button id="fileBtn" class="btn ghost">📎</button>
     <input id="fileInput" type="file" accept="image/*" style="display:none" />
     <button id="sendBtn" class="btn primary">Send</button>
@@ -34,29 +25,5 @@
 
 <script src="firebase.js"></script>
 <script src="script.js"></script>
-
-<!-- optional: small inline to subscribe to notifications for the current user (will run only if auth/db available) -->
-<script>
-(function(){
-  const sess = JSON.parse(localStorage.getItem('session') || 'null');
-  if(!sess) return;
-  // subscribe to notifications for this user (admin notifications handled on admin page)
-  if(window.db){
-    db.collection('notifications')
-      .where('userEmail','==', sess.email)
-      .where('read','==', false)
-      .onSnapshot(snap=>{
-        snap.docChanges().forEach(ch=>{
-          if(ch.type === 'added'){
-            const n = ch.doc.data();
-            alert('🔔 Notification:\n' + (n.title||'') + '\n' + (n.message||''));
-            // mark read
-            ch.doc.ref.update({ read: true }).catch(()=>{});
-          }
-        });
-      });
-  }
-})();
-</script>
 </body>
 </html>
